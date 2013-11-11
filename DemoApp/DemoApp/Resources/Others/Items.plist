@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Title</key>
+		<string>Parse 1</string>
+		<key>Description</key>
+		<string>Get json objects from API 1</string>
+	</dict>
+	<dict>
+		<key>Title</key>
+		<string>Parse 2</string>
+		<key>Description</key>
+		<string>Get json objects from API 2</string>
+	</dict>
+	<dict>
+		<key>Title</key>
+		<string>Parse 3</string>
+		<key>Description</key>
+		<string>Get json objects from API 3</string>
+	</dict>
+	<dict>
+		<key>Title</key>
+		<string>Parse 4</string>
+		<key>Description</key>
+		<string>Get json objects from API 4</string>
+	</dict>
+</array>
+</plist>
