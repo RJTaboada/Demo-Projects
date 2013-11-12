@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		7C02D001183124FB00C25143 /* MyDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C02D000183124FB00C25143 /* MyDefaults.m */; };
 		7C02D00718312D0800C25143 /* SharedVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C02D00618312D0800C25143 /* SharedVariables.m */; };
+		7C350ED918327D52008FD82B /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C350ED818327D52008FD82B /* FacebookSDK.framework */; };
+		7C350EE018327DD1008FD82B /* Zuckerkeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C350EDD18327DD1008FD82B /* Zuckerkeys.m */; };
+		7C350EE118327DD1008FD82B /* Zuckerkit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C350EDF18327DD1008FD82B /* Zuckerkit.m */; };
+		7C350EE518327E34008FD82B /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C350EE418327E34008FD82B /* SecondViewController.m */; };
 		7C7D88751829392400F23BDB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C7D88741829392400F23BDB /* Foundation.framework */; };
 		7C7D88771829392400F23BDB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C7D88761829392400F23BDB /* CoreGraphics.framework */; };
 		7C7D88791829392400F23BDB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C7D88781829392400F23BDB /* UIKit.framework */; };
@@ -54,6 +58,13 @@
 		7C02D000183124FB00C25143 /* MyDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyDefaults.m; path = Models/MyDefaults.m; sourceTree = "<group>"; };
 		7C02D00518312D0800C25143 /* SharedVariables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SharedVariables.h; path = Models/SharedVariables.h; sourceTree = "<group>"; };
 		7C02D00618312D0800C25143 /* SharedVariables.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SharedVariables.m; path = Models/SharedVariables.m; sourceTree = "<group>"; };
+		7C350ED818327D52008FD82B /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = DemoApp/LIbraries/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		7C350EDC18327DD1008FD82B /* Zuckerkeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zuckerkeys.h; sourceTree = "<group>"; };
+		7C350EDD18327DD1008FD82B /* Zuckerkeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Zuckerkeys.m; sourceTree = "<group>"; };
+		7C350EDE18327DD1008FD82B /* Zuckerkit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zuckerkit.h; sourceTree = "<group>"; };
+		7C350EDF18327DD1008FD82B /* Zuckerkit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Zuckerkit.m; sourceTree = "<group>"; };
+		7C350EE318327E34008FD82B /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecondViewController.h; path = Second/SecondViewController.h; sourceTree = "<group>"; };
+		7C350EE418327E34008FD82B /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SecondViewController.m; path = Second/SecondViewController.m; sourceTree = "<group>"; };
 		7C7D88711829392400F23BDB /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C7D88741829392400F23BDB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7C7D88761829392400F23BDB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -109,6 +120,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C7D88771829392400F23BDB /* CoreGraphics.framework in Frameworks */,
+				7C350ED918327D52008FD82B /* FacebookSDK.framework in Frameworks */,
 				7C7D88791829392400F23BDB /* UIKit.framework in Frameworks */,
 				7C7D88751829392400F23BDB /* Foundation.framework in Frameworks */,
 			);
@@ -154,6 +166,35 @@
 			name = SharedVariables;
 			sourceTree = "<group>";
 		};
+		7C350EDA18327DD1008FD82B /* Zuckerkit */ = {
+			isa = PBXGroup;
+			children = (
+				7C350EDE18327DD1008FD82B /* Zuckerkit.h */,
+				7C350EDF18327DD1008FD82B /* Zuckerkit.m */,
+				7C350EDB18327DD1008FD82B /* Zuckerkeys */,
+			);
+			name = Zuckerkit;
+			path = LIbraries/Zuckerkit;
+			sourceTree = "<group>";
+		};
+		7C350EDB18327DD1008FD82B /* Zuckerkeys */ = {
+			isa = PBXGroup;
+			children = (
+				7C350EDC18327DD1008FD82B /* Zuckerkeys.h */,
+				7C350EDD18327DD1008FD82B /* Zuckerkeys.m */,
+			);
+			path = Zuckerkeys;
+			sourceTree = "<group>";
+		};
+		7C350EE218327DFD008FD82B /* Facebook */ = {
+			isa = PBXGroup;
+			children = (
+				7C350EE318327E34008FD82B /* SecondViewController.h */,
+				7C350EE418327E34008FD82B /* SecondViewController.m */,
+			);
+			name = Facebook;
+			sourceTree = "<group>";
+		};
 		7C7D88681829392400F23BDB = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +218,7 @@
 		7C7D88731829392400F23BDB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7C350ED818327D52008FD82B /* FacebookSDK.framework */,
 				7C7D88741829392400F23BDB /* Foundation.framework */,
 				7C7D88761829392400F23BDB /* CoreGraphics.framework */,
 				7C7D88781829392400F23BDB /* UIKit.framework */,
@@ -275,6 +317,7 @@
 		7C9FE0BE182A96850090CDD7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7C350EE218327DFD008FD82B /* Facebook */,
 				7C9FE0B5182A8C4D0090CDD7 /* Menu */,
 				7C9FE0BF182A969E0090CDD7 /* Output */,
 			);
@@ -293,6 +336,7 @@
 		7C9FE0C4182AA9A40090CDD7 /* LIbraries */ = {
 			isa = PBXGroup;
 			children = (
+				7C350EDA18327DD1008FD82B /* Zuckerkit */,
 				7C9FE0E2182AAF770090CDD7 /* AFNetworking */,
 			);
 			name = LIbraries;
@@ -447,6 +491,7 @@
 				7C9FE0FC182AAF770090CDD7 /* AFJSONUtilities.m in Sources */,
 				7C9FE0FA182AAF770090CDD7 /* AFImageRequestOperation.m in Sources */,
 				7C9FE0F9182AAF770090CDD7 /* AFHTTPRequestOperation.m in Sources */,
+				7C350EE518327E34008FD82B /* SecondViewController.m in Sources */,
 				7C9FE100182AAF770090CDD7 /* AFXMLRequestOperation.m in Sources */,
 				7C9FE0F8182AAF770090CDD7 /* AFHTTPClient.m in Sources */,
 				7C9FE101182AAF770090CDD7 /* UIImageView+AFNetworking.m in Sources */,
@@ -457,10 +502,12 @@
 				7C9FE0C2182A96EA0090CDD7 /* OutputViewController.m in Sources */,
 				7C7D88851829392400F23BDB /* AppDelegate.m in Sources */,
 				7C02D00718312D0800C25143 /* SharedVariables.m in Sources */,
+				7C350EE018327DD1008FD82B /* Zuckerkeys.m in Sources */,
 				7C9FE0FE182AAF770090CDD7 /* AFPropertyListRequestOperation.m in Sources */,
 				7C9FE0FB182AAF770090CDD7 /* AFJSONRequestOperation.m in Sources */,
 				7C7D88811829392400F23BDB /* main.m in Sources */,
 				7CF96B01182ABDEC0072E50A /* URLConfig.m in Sources */,
+				7C350EE118327DD1008FD82B /* Zuckerkit.m in Sources */,
 				7C02D001183124FB00C25143 /* MyDefaults.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -591,6 +638,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/RjT/Projects/Demo\\ Projects/DemoApp/DemoApp/LIbraries",
+					"/Users/RjT/Projects/Demo\\ Projects/DemoApp/DemoApp/LIbraries/FacebookSDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DemoApp/DemoApp-Prefix.pch";
@@ -612,6 +660,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/RjT/Projects/Demo\\ Projects/DemoApp/DemoApp/LIbraries",
+					"/Users/RjT/Projects/Demo\\ Projects/DemoApp/DemoApp/LIbraries/FacebookSDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DemoApp/DemoApp-Prefix.pch";

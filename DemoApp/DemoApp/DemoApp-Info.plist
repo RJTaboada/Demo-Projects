@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>
-	<string>reneboi.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.dev.demoapps</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -33,6 +33,34 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>Zuckerkit</key>
+	<dict>
+		<key>Development Keys</key>
+		<dict>
+			<key>id</key>
+			<string>573476539391345</string>
+			<key>name</key>
+			<string>Flpbk</string>
+		</dict>
+		<key>Production</key>
+		<false/>
+		<key>Production Keys</key>
+		<dict>
+			<key>id</key>
+			<string>573476539391345</string>
+			<key>name</key>
+			<string>Flpbk</string>
+		</dict>
+	</dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb573476539391345</string>
+			</array>
+		</dict>
 	</array>
 </dict>
 </plist>
