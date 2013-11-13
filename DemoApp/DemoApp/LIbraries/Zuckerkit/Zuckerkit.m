@@ -183,7 +183,26 @@ static NSString *const publish_actions = @"publish_actions";
     [FBWebDialogs presentDialogModallyWithSession:[FBSession activeSession] dialog:@"apprequests"
       parameters:@{@"to" : userId, @"message" : message}
       handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
-      
+          if (error) {
+              // Error launching the dialog or sending the request.
+              NSLog(@"Error sending request.");
+          } else {
+              if (result == FBWebDialogResultDialogNotCompleted) {
+                  // User clicked the "x" icon
+                  NSLog(@"User canceled request.");
+              } else {
+                  // Handle the send request callback
+                  NSDictionary *urlParams = [self parseURLParams:[resultURL query]];
+                  if (![urlParams valueForKey:@"request"]) {
+                      // User clicked the Cancel button
+                      NSLog(@"User canceled request.");
+                  } else {
+                      // User clicked the Send button
+                      NSString *requestID = [urlParams valueForKey:@"request"];
+                      NSLog(@"Request ID: %@", requestID);
+                  }
+              }
+          }
     }];
 }
 
@@ -212,7 +231,7 @@ static NSString *const publish_actions = @"publish_actions";
                      NSLog(@"User canceled request.");
                  } else {
                      // User clicked the Send button
-                     NSString *requestID = @"100000620543264"; //[urlParams valueForKey:@"request"];
+                     NSString *requestID = [urlParams valueForKey:@"request"];
                      NSLog(@"Request ID: %@", requestID);
                  }
              }

@@ -161,6 +161,7 @@
                                 </state>
                                 <connections>
                                     <action selector="didTapFriends" destination="jKX-Qw-jIv" eventType="touchUpInside" id="Nzj-iT-0Pq"/>
+                                    <segue destination="Bi5-By-VPZ" kind="modal" id="2uS-Xb-rsW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -177,6 +178,73 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Raq-Q6-KVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="671" y="-40"/>
+        </scene>
+        <!--Navigation Controller - test-->
+        <scene sceneID="5W6-aj-dM7">
+            <objects>
+                <navigationController title="test" definesPresentationContext="YES" id="Bi5-By-VPZ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9ud-Yi-2b3">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Mh4-dN-6ZB" kind="relationship" relationship="rootViewController" id="KK4-Tv-4bz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HDs-Da-f5O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1202" y="-40"/>
+        </scene>
+        <!--Friend List View Controller - FriendList-->
+        <scene sceneID="MTI-L3-cF0">
+            <objects>
+                <tableViewController title="FriendList" id="Mh4-dN-6ZB" customClass="FriendListViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Sis-9c-cEf">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cells" textLabel="wkT-T7-grK" detailTextLabel="CCd-ok-hbe" style="IBUITableViewCellStyleSubtitle" id="zXl-MM-xKM">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zXl-MM-xKM" id="C94-cV-yT9">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wkT-T7-grK">
+                                            <rect key="frame" x="15" y="3" width="34" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CCd-ok-hbe">
+                                            <rect key="frame" x="15" y="25" width="43" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Mh4-dN-6ZB" id="Tdi-KI-ai1"/>
+                            <outlet property="delegate" destination="Mh4-dN-6ZB" id="yTI-ak-puY"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Friend List" id="rgY-11-ELw">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="h9W-Sp-ewE">
+                            <connections>
+                                <action selector="didTapCancel:" destination="Mh4-dN-6ZB" id="6af-e4-hEc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1V5-8p-wfP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1722" y="-40"/>
         </scene>
         <!--Navigation Controller - Parse-->
         <scene sceneID="miK-8d-hGY">

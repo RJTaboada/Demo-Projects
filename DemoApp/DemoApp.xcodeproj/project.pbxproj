@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7C02D001183124FB00C25143 /* MyDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C02D000183124FB00C25143 /* MyDefaults.m */; };
 		7C02D00718312D0800C25143 /* SharedVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C02D00618312D0800C25143 /* SharedVariables.m */; };
+		7C20777F1833DFDF00B9D7E5 /* FriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C20777E1833DFDF00B9D7E5 /* FriendListViewController.m */; };
 		7C350ED918327D52008FD82B /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C350ED818327D52008FD82B /* FacebookSDK.framework */; };
 		7C350EE018327DD1008FD82B /* Zuckerkeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C350EDD18327DD1008FD82B /* Zuckerkeys.m */; };
 		7C350EE118327DD1008FD82B /* Zuckerkit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C350EDF18327DD1008FD82B /* Zuckerkit.m */; };
@@ -58,6 +59,8 @@
 		7C02D000183124FB00C25143 /* MyDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyDefaults.m; path = Models/MyDefaults.m; sourceTree = "<group>"; };
 		7C02D00518312D0800C25143 /* SharedVariables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SharedVariables.h; path = Models/SharedVariables.h; sourceTree = "<group>"; };
 		7C02D00618312D0800C25143 /* SharedVariables.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SharedVariables.m; path = Models/SharedVariables.m; sourceTree = "<group>"; };
+		7C20777D1833DFDF00B9D7E5 /* FriendListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendListViewController.h; path = FriendList/FriendListViewController.h; sourceTree = "<group>"; };
+		7C20777E1833DFDF00B9D7E5 /* FriendListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendListViewController.m; path = FriendList/FriendListViewController.m; sourceTree = "<group>"; };
 		7C350ED818327D52008FD82B /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = DemoApp/LIbraries/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		7C350EDC18327DD1008FD82B /* Zuckerkeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zuckerkeys.h; sourceTree = "<group>"; };
 		7C350EDD18327DD1008FD82B /* Zuckerkeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Zuckerkeys.m; sourceTree = "<group>"; };
@@ -166,6 +169,15 @@
 			name = SharedVariables;
 			sourceTree = "<group>";
 		};
+		7C20777C1833DF4900B9D7E5 /* FriendList Table */ = {
+			isa = PBXGroup;
+			children = (
+				7C20777D1833DFDF00B9D7E5 /* FriendListViewController.h */,
+				7C20777E1833DFDF00B9D7E5 /* FriendListViewController.m */,
+			);
+			name = "FriendList Table";
+			sourceTree = "<group>";
+		};
 		7C350EDA18327DD1008FD82B /* Zuckerkit */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +201,7 @@
 		7C350EE218327DFD008FD82B /* Facebook */ = {
 			isa = PBXGroup;
 			children = (
+				7C20777C1833DF4900B9D7E5 /* FriendList Table */,
 				7C350EE318327E34008FD82B /* SecondViewController.h */,
 				7C350EE418327E34008FD82B /* SecondViewController.m */,
 			);
@@ -504,6 +517,7 @@
 				7C02D00718312D0800C25143 /* SharedVariables.m in Sources */,
 				7C350EE018327DD1008FD82B /* Zuckerkeys.m in Sources */,
 				7C9FE0FE182AAF770090CDD7 /* AFPropertyListRequestOperation.m in Sources */,
+				7C20777F1833DFDF00B9D7E5 /* FriendListViewController.m in Sources */,
 				7C9FE0FB182AAF770090CDD7 /* AFJSONRequestOperation.m in Sources */,
 				7C7D88811829392400F23BDB /* main.m in Sources */,
 				7CF96B01182ABDEC0072E50A /* URLConfig.m in Sources */,

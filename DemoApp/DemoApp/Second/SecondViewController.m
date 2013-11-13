@@ -9,7 +9,11 @@
 #import "SecondViewController.h"
 #import "Zuckerkit.h"
 
-@interface SecondViewController ()
+#import "FriendListViewController.h"
+
+@interface SecondViewController () {
+    NSArray *friendlist;
+}
 
 @end
 
@@ -26,40 +30,26 @@
     return self;
 }
 
-#warning @job - mejo buggy pa ito, specially sa send invite to friends.. d xa nag error pwo wala naman ma resev na notification, titignan ko pa to..
 
-
-#pragma mark - REQUEST
+#pragma mark - User Session
 
 - (void)newUserSession {
     
     [[Zuckerkit sharedInstance] openSessionWithBasicInfoThenRequestPublishPermissions:^(NSError *error) {
         if(error) {
-            [[[UIAlertView alloc] initWithTitle:@"Fail" message:error.description
+            [[[UIAlertView alloc] initWithTitle:@"Fail" message:@"Unable to Authenticate your Account!"
                                        delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             return;
         }
         [[[UIAlertView alloc] initWithTitle:@"Success" message:@"Authorization successful."
                                    delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
-    }];
-    
-}
-
-- (void)retrieveUserInfo {
-    
-    [[Zuckerkit sharedInstance] getUserInfo:^(id<FBGraphUser> user, NSError *error) {
-        if (error) {
-            [[[UIAlertView alloc] initWithTitle:@"Fail" message:error.description
-                                       delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
-            return;
-        }
-        NSLog(@"user are %@",user);
-        [[[UIAlertView alloc] initWithTitle:@"success" message:@"done retrieving friend list"
-                                   delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+        
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        [self.btnaction setTitle:@"Sign Out" forState:UIControlStateNormal];
+        NSLog(@"after login current token is : %@",[[Zuckerkit sharedInstance] accessToken]);
     }];
 }
-
 
 - (void)endUserSession {
     
@@ -67,19 +57,63 @@
     [[[UIAlertView alloc] initWithTitle:@"success" message:@"signout successfull"
                                delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    [self.btnaction setTitle:@"Login Facebook" forState:UIControlStateNormal];
+    NSLog(@"after logout .current token is : %@",[[Zuckerkit sharedInstance] accessToken]);
 }
 
+- (void)newUserSessionWithAudienceType {
+    
+    [[Zuckerkit sharedInstance] openSessionWithBasicInfoThenRequestPublishPermissionsAndGetAudienceType:^(NSError *error, NSInteger FacebookAudienceType) {
+        
+        if(error) {
+            [[[UIAlertView alloc] initWithTitle:@"Fail" message:@"Unable to Authenticate your Account!"
+                                       delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+            return;
+        }
+        [[[UIAlertView alloc] initWithTitle:@"Success" message:@"Authorization successful."
+                                   delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    }];
+}
+
+
+#pragma mark - get Profile
+
+- (void)retrieveUserInfo {
+    
+    [[Zuckerkit sharedInstance] getUserInfo:^(id<FBGraphUser> user, NSError *error) {
+        if (error) {
+            [[[UIAlertView alloc] initWithTitle:@"Fail" message:error.description
+                                       delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            return;
+        }
+        NSLog(@"user are %@",user);
+        [[[UIAlertView alloc] initWithTitle:@"success" message:@"done retrieving user info"
+                                   delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    }];
+}
+
+// unused migrated code to friendlist table
 - (void)inviteFriend {
     
     [[Zuckerkit sharedInstance] sendRequest]; // MINE
-//    [[Zuckerkit sharedInstance] showAppRequestDialogueWithMessage:@"testing" toUserId:@"100000620543264"]; //commented for testing..
+//    [[Zuckerkit sharedInstance] showAppRequestDialogueWithMessage:@"testing" toUserId:@"100000620543264"]; //commented for testing..    100000620543264
 }
 
+
+// unused migrated code to friendlist table
 - (void)retrieveFriendList {
     
-    [[Zuckerkit sharedInstance] getFriends:^(NSArray *friends, NSError *error) {
-        NSLog(@"FRIEND LIST ~: %@",friends);
-    }];
+//    [[Zuckerkit sharedInstance] getFriends:^(NSArray *friends, NSError *error) {
+//        NSLog(@"FRIEND LIST ~: %@",friends);
+//        friendlist = [NSArray arrayWithArray:friends];
+//        
+//        FriendListViewController *friendListViewController = [[FriendListViewController alloc] init];
+//        friendListViewController.list = friendlist;
+//        UINavigationController *navbar = [[UINavigationController alloc] initWithRootViewController:friendListViewController];
+//        [self presentViewController:navbar animated:YES completion:nil];
+//    }];
 }
 
 
@@ -87,22 +121,18 @@
 
 - (IBAction)didTapLogin:(UIButton *)sender {
     
-    if (!sender.tag) {
-        [self.btnaction setTag:1];
-        [self.btnaction setTitle:@"Sign Out" forState:UIControlStateNormal];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    
+    if (![[Zuckerkit sharedInstance] accessToken]) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self newUserSession];
         });
     }
     else {
-        
-        [self.btnaction setTag:0];
-        [self.btnaction setTitle:@"Login Facebook" forState:UIControlStateNormal];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self endUserSession];
         });
     }
-    
 }
 
 - (IBAction)didTapInfo {
@@ -118,11 +148,13 @@
     });
 }
 
+// modified now only used for pushing view
 - (IBAction)didTapFriends {
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self retrieveFriendList];
-    });
+//    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [self retrieveFriendList];
+//    });
 }
 
 
@@ -133,6 +165,17 @@
 	// Do any additional setup after loading the view.
     
     [self.mylabel setText:@"asdfasdf"];
+    
+    friendlist = [[NSArray alloc] init];
+    
+    NSLog(@"current token is : %@",[[Zuckerkit sharedInstance] accessToken]);
+    
+    if ([[Zuckerkit sharedInstance] accessToken]) {
+        [self.btnaction setTitle:@"Sign Out" forState:UIControlStateNormal];
+    }
+    else {
+        [self.btnaction setTitle:@"Login Facebook" forState:UIControlStateNormal];
+    }
 }
 
 
@@ -142,7 +185,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Navigation
 
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+
+    if ([[segue identifier] isEqualToString:@"test"]) {
+        FriendListViewController *friendListViewController = [[FriendListViewController alloc] init];
+        friendListViewController.list = friendlist;
+    }
+}
 
 
 
